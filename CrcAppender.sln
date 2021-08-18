@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrcAppender", "CrcAppender.csproj", "{222387D3-FE6E-44FC-852C-27D3412587AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{222387D3-FE6E-44FC-852C-27D3412587AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{222387D3-FE6E-44FC-852C-27D3412587AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{222387D3-FE6E-44FC-852C-27D3412587AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{222387D3-FE6E-44FC-852C-27D3412587AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B27B93EE-F412-40B6-82CB-8CF605A8CD4A}
+	EndGlobalSection
+EndGlobal
