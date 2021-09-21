@@ -163,7 +163,7 @@ namespace CrcAppender
                 {
                     writer.Flush();
                     file.ContentOffset = (uint)stream.Position;
-                    using (FileStream fs = new(file.Filename, FileMode.Open, FileAccess.Read))
+                    using (Stream fs = GetFileStream(file.Filename))
                     {
                         Console.WriteLine("Embedding file {0} ({1} bytes @ {2})", file.Filename, fs.Length, file.ContentOffset);
                         file.ContentLength = (uint)fs.Length;
@@ -183,6 +183,56 @@ namespace CrcAppender
                 }
             }
             return stream;
+        }
+
+        private static Stream GetFileStream(string filename)
+        {
+            // Strip comments and empty lines automatically from G-code files
+            if (filename.EndsWith(".g"))
+            {
+                MemoryStream strippedFile = new();
+                using (StreamWriter writer = new(strippedFile, leaveOpen: true))
+                {
+                    using FileStream fs = new(filename, FileMode.Open, FileAccess.Read);
+                    using StreamReader reader = new(fs);
+
+                    while (true)
+                    {
+                        string line = reader.ReadLine();
+                        if (line == null)
+                        {
+                            break;
+                        }
+
+                        for (int i = line.Length - 1; i >= 0; i--)
+                        {
+                            // Stop when a double-quote is seen
+                            if (line[i] == '"')
+                            {
+                                break;
+                            }
+
+                            if (line[i] == ';')
+                            {
+                                // Strip everything after the semicolon
+                                line = line[..i].TrimEnd();
+                                break;
+                            }
+                        }
+
+                        // Write the line only if it isn't empty
+                        if (!string.IsNullOrWhiteSpace(line))
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+                strippedFile.Seek(0, SeekOrigin.Begin);
+                return strippedFile;
+            }
+
+            // Return just a direct reference to the file
+            return new FileStream(filename, FileMode.Open, FileAccess.Read);
         }
 
         /// <summary>
