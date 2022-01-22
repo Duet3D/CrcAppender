@@ -93,3 +93,7 @@ Finally, AppendCrc appends the crc of the whole file including the embedded file
 ## License
 
 This program is licensed under the terms of the [GPLv3](LICENSE).
+
+## Bug reports
+
+Please use the [forum](https://forum.duet3d.com) for support requests or the [RepRapFirmware](https://github.com/Duet3D/RepRapFirmware/issues) GitHub repository for feature requests and bug reports.
