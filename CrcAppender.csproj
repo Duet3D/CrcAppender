@@ -2,12 +2,12 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Authors>Christian Hammacher</Authors>
     <Company>Duet3D Ltd</Company>
     <Copyright>Duet3D Ltd</Copyright>
     <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
 </Project>
