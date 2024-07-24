@@ -11,8 +11,8 @@ namespace CrcAppender
             // Show help if nothing is passed
             if (args.Length == 0)
             {
-                Console.WriteLine("CRC32 appender with optional FS image embedder v{0} by Duet3D", Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion);
-                Console.WriteLine("Usage: {0} <FirmwareImage.bin> [<FS root directory>]", Path.GetFileName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName));
+                Console.WriteLine("CRC32 appender with optional FS image embedder v{0} by Duet3D Ltd", Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion);
+                Console.WriteLine("Usage: {0} <FirmwareImage.bin> [<FS root directory>]", Path.GetFileName(Environment.ProcessPath));
                 return 0;
             }
 
@@ -91,7 +91,7 @@ namespace CrcAppender
 
         private const long Crc32Address = 0x1C;
 
-        private static void FixCrc32Address(Stream binaryStream, long fsLength)
+        private static void FixCrc32Address(FileStream binaryStream, long fsLength)
         {
             Span<byte> crc32Address = stackalloc byte[sizeof(uint)];
             binaryStream.Seek(Crc32Address, SeekOrigin.Begin);
@@ -103,7 +103,7 @@ namespace CrcAppender
             binaryStream.Write(crc32Address);
         }
 
-        private static bool AppendCrc32(Stream target)
+        private static bool AppendCrc32(FileStream target)
         {
             byte[] content = new byte[(int)target.Length];
             target.Seek(0, SeekOrigin.Begin);

@@ -2,16 +2,16 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Authors>Christian Hammacher</Authors>
     <Company>Duet3D Ltd</Company>
     <Copyright>Duet3D Ltd</Copyright>
     <PackageLicenseExpression>GPL-3.0</PackageLicenseExpression>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PublishSingleFile>true</PublishSingleFile>
+    <PublishAot>true</PublishAot>
   </PropertyGroup>
 
 </Project>
