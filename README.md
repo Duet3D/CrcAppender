@@ -19,21 +19,10 @@ where `Duet3Firmware_MB6HC.bin` is your firmware binary. For further instruction
 
 ## Building
 
-To build this application the [.NET SDK](https://dotnet.microsoft.com/download/dotnet/5.0) is required. To build it on any platform, run the following command on
+To build this application the [.NET SDK](https://dotnet.microsoft.com/download/dotnet/8.0) is required. To build it on any platform, run the following command
 
-### Windows x64
 ```
-dotnet publish -r win-x64 -p:PublishSingleFile=true --self-contained false
-```
-
-### Linux x64
-```
-dotnet publish -r linux-x64 -p:PublishSingleFile=true --self-contained false
-```
-
-### OS X
-```
-dotnet publish -r osx-x64 -p:PublishSingleFile=true --self-contained false
+dotnet publish
 ```
 
 This will generate a standalone application without additional runtime files. See [here](https://docs.microsoft.com/de-de/dotnet/core/rid-catalog) for a full list of runtime identifiers.
